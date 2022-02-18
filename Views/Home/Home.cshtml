@@ -1,0 +1,8 @@
+﻿
+<h1>Home</h1>
+
+@foreach (var item in ((List<Aluno>)ViewBag.Alunos).Take(10))
+{
+
+    <h1>@item.Nome</h1>
+}
