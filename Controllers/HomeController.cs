@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using fiapweb2022.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace fiapweb2022.Controllers
 {
