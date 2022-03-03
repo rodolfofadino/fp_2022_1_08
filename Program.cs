@@ -1,11 +1,7 @@
-﻿
-
-using fiapweb2022.Middlewares;
+﻿using fiapweb2022.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddControllersWithViews();
-
 
 var app = builder.Build();
 
