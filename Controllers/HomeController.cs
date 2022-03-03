@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace fiap_web_2022.Controllers
+namespace fiapweb2022.Controllers
 {
     public class HomeController :Controller
     {
@@ -15,6 +15,14 @@ namespace fiap_web_2022.Controllers
 
             var model = new Aluno() { Nome = "Jorge", Sobrenome = "Amado" };
             ViewBag.Aluno = model;
+
+
+            var lista = new List<Aluno>();
+            for (int i = 0; i < 10; i++)
+            {
+                lista.Add(new Aluno() { Nome = $"Jorge {i}", Sobrenome = "Amado" });
+            }
+            ViewBag.Alunos = lista.ToList();
 
             //return View("home");
             return View(model);

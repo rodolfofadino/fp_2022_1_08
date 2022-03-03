@@ -3,6 +3,8 @@
 
 @foreach (var item in ((List<Aluno>)ViewBag.Alunos).Take(10))
 {
-
-    <h1>@item.Nome</h1>
+    <partial name="_Aluno" model="item"></partial>
 }
+
+
+

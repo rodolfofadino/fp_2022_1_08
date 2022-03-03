@@ -1,4 +1,4 @@
-﻿namespace fiap_web_2022.Controllers
+﻿namespace fiapweb2022.Controllers
 {
     public class Aluno
     {
