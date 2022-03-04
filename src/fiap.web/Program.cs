@@ -1,4 +1,4 @@
-﻿using fiapweb2022.Contexts;
+﻿using fiapweb2022.core.Contexts;
 using fiapweb2022.Middlewares;
 using Microsoft.EntityFrameworkCore;
 

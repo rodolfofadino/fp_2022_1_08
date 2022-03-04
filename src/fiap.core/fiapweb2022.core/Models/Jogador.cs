@@ -1,4 +1,4 @@
-﻿namespace fiapweb2022.Models
+﻿namespace fiapweb2022.core.Models
 {
     public class Jogador
     {

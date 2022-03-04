@@ -1,4 +1,4 @@
-﻿using fiapweb2022.Models;
+﻿using fiapweb2022.core.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Configuration;
 

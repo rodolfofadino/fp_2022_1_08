@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
 
-namespace fiapweb2022.Models
+namespace fiapweb2022.core.Models
 {
     public class Time
     {
-        [HiddenInput]
+       
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Bandeira { get; set; }
