@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css" />
+
+</head>
+<body>
+    <img asp-append-version="true" />
+    <div>
+        @*@Html.Partial("_Menu")
+            @await Html.PartialAsync("_Menu")*@
+
+        <partial name="_Menu"></partial>
+
+    </div>
+    <div>
+        @RenderBody()
+    </div>
+
+    @RenderSection("Scripts",false)
+</body>
+</html>
