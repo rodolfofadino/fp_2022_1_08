@@ -24,3 +24,16 @@
 <vc:noticias total="2" noticias-urgentes="true"></vc:noticias>
 @*@await Component.InvokeAsync("Noticias", new{total=3, noticiasUrgentes = false})*@
 
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    
+$.get("https://localhost:5003/api/v2.0/times", function(data,status){
+
+    console.log("Data" + data);
+});
+</script>
+

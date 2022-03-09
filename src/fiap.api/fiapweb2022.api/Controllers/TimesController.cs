@@ -1,5 +1,6 @@
 ﻿using fiapweb2022.core.Contexts;
 using fiapweb2022.core.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,10 @@ using System.Threading.Tasks;
 
 namespace fiapweb2022.api.Controllers
 {
-    [Route("api/[controller]")]
+    [ApiVersion("2.0")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
+    //[EnableCors("Default")]
     public class TimesController : Controller
     {
         private CopaContext _context;
