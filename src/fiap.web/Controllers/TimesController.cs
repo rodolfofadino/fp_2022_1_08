@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using fiapweb2022.core.Contexts;
 using fiapweb2022.core.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace fiapweb2022.Controllers
 {
+    [Authorize]
     public class TimesController : Controller
     {
         private readonly CopaContext _context;
@@ -23,6 +25,7 @@ namespace fiapweb2022.Controllers
         // GET: Times
         public async Task<IActionResult> Index()
         {
+
             return View(await _context.Times.ToListAsync());
         }
 

@@ -12,9 +12,17 @@ namespace fiapweb2022.Controllers
         }
 
         [HttpGet]
+        public IActionResult Login(string returnUr)
+        {
+
+            return Redirect(returnUr);
+        }
+
+        [HttpGet]
         public IActionResult Index([FromQuery]string? appName)
         {
 
+            ViewData["Tag"] = "<script>alert('oi')</script>";
             ViewData["Nome"] = "Filipe";
             ViewBag.SobreNome = "Augusto";
 

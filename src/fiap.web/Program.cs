@@ -1,8 +1,24 @@
 ﻿using fiapweb2022.core.Contexts;
 using fiapweb2022.Middlewares;
+using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+
+builder.Services.AddDataProtection()
+    .SetApplicationName("fiap")
+    .PersistKeysToFileSystem(new DirectoryInfo( "C:\\Users\\rodolfofadino\\source\\repos\\fiap-web-2022\\src\\fiap.web"));
+
+builder.Services.AddAuthentication("app").AddCookie("app",
+    o =>
+    {
+        o.LoginPath = "/account/index";
+        o.AccessDeniedPath = "/account/denied";
+    });
+
+
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CopaContext>(
 
@@ -48,6 +64,7 @@ var app = builder.Build();
 
 //app.UseMiddleware<MeuMiddleware>();
 
+
 app.UseStaticFiles();
 
 app.UseMeuMiddleware();
@@ -57,6 +74,9 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.MapControllerRoute(name: "default1",
     pattern: "{controller=home}/{action=index}/{id?}"
