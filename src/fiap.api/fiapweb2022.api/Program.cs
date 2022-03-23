@@ -1,7 +1,10 @@
-﻿using fiapweb2022.core.Contexts;
+﻿using fiapweb2022.api;
+using fiapweb2022.core.Contexts;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,6 +56,24 @@ builder.Services.AddApiVersioning(o =>
         o.DefaultApiVersion = new Microsoft.AspNetCore.Mvc.ApiVersion(2, 0);
     });
 
+
+builder.Services.AddAuthentication(o => {
+    o.DefaultAuthenticateScheme = "Jwt";
+    o.DefaultChallengeScheme = "Jwt";
+}).AddJwtBearer("Jwt", o => {
+    o.TokenValidationParameters = new TokenValidationParameters() {
+        ValidateAudience = false,
+        ValidAudience = "clients-api",
+        ValidIssuer = "api",
+        ValidateIssuer = false,
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Security.GetKey()),
+        ValidateLifetime = true,
+        ClockSkew = TimeSpan.FromMinutes(5)
+    };});
+
+
+
 var app = builder.Build();
 
 
@@ -63,6 +84,10 @@ app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api de time
 app.UseCors("Default");
 
 app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
 app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
 

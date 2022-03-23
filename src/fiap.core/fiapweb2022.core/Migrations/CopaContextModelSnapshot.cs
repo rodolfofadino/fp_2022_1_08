@@ -22,7 +22,7 @@ namespace fiapweb2022.core.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("fiapweb2022.Models.Jogador", b =>
+            modelBuilder.Entity("fiapweb2022.core.Models.Jogador", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace fiapweb2022.core.Migrations
                     b.ToTable("Jogadores");
                 });
 
-            modelBuilder.Entity("fiapweb2022.Models.Time", b =>
+            modelBuilder.Entity("fiapweb2022.core.Models.Time", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -73,14 +73,42 @@ namespace fiapweb2022.core.Migrations
                     b.ToTable("Times");
                 });
 
-            modelBuilder.Entity("fiapweb2022.Models.Jogador", b =>
+            modelBuilder.Entity("fiapweb2022.core.Models.TokenStore", b =>
                 {
-                    b.HasOne("fiapweb2022.Models.Time", null)
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Token")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Used")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TokensStores");
+                });
+
+            modelBuilder.Entity("fiapweb2022.core.Models.Jogador", b =>
+                {
+                    b.HasOne("fiapweb2022.core.Models.Time", null)
                         .WithMany("Jogadores")
                         .HasForeignKey("TimeId");
                 });
 
-            modelBuilder.Entity("fiapweb2022.Models.Time", b =>
+            modelBuilder.Entity("fiapweb2022.core.Models.Time", b =>
                 {
                     b.Navigation("Jogadores");
                 });

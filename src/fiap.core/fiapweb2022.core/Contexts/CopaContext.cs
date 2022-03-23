@@ -9,6 +9,7 @@ namespace fiapweb2022.core.Contexts
         {
 
         }
+        public DbSet<TokenStore> TokensStores { get; set; }
         public DbSet<Time> Times { get; set; }
         public DbSet<Jogador> Jogadores{ get; set; }
 

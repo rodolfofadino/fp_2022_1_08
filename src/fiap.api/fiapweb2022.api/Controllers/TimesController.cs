@@ -1,5 +1,7 @@
-﻿using fiapweb2022.core.Contexts;
+﻿using fiapweb2022.api.ActionFilters;
+using fiapweb2022.core.Contexts;
 using fiapweb2022.core.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,6 +16,8 @@ namespace fiapweb2022.api.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     //[EnableCors("Default")]
+    //[CustomAuthorize]
+    [Authorize]
     public class TimesController : Controller
     {
         private CopaContext _context;
@@ -24,6 +28,7 @@ namespace fiapweb2022.api.Controllers
         }
 
         [HttpPost]
+        //[Authorize(Roles ="Professor")]
         public ActionResult<Time> Post(Time time)
         {
             if (ModelState.IsValid)
