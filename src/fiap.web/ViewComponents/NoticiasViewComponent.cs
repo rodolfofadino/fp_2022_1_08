@@ -1,4 +1,5 @@
 ﻿using fiapweb2022.core.Models;
+using fiapweb2022.core.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace fiapweb2022.ViewComponents
@@ -6,6 +7,13 @@ namespace fiapweb2022.ViewComponents
 
     public class NoticiasViewComponent : ViewComponent
     {
+        private NoticiaService _noticiaService;
+
+        public NoticiasViewComponent(NoticiaService noticiaService)
+        {
+            _noticiaService = noticiaService;
+
+        }
 
         public async Task<IViewComponentResult> InvokeAsync(int total, bool noticiasUrgentes = false)
         {
@@ -16,7 +24,7 @@ namespace fiapweb2022.ViewComponents
                 view = "noticiasurgentes";
             }
 
-            var items = GetNoticias(total);
+            var items = _noticiaService.Load(total);
 
             return View(view, items);
         }

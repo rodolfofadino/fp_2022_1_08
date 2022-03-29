@@ -1,4 +1,5 @@
 ﻿using fiapweb2022.core.Contexts;
+using fiapweb2022.core.Services;
 using fiapweb2022.Middlewares;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ builder.Services.AddAuthentication("app").AddCookie("app",
 
 
 
+builder.Services.AddTransient<NoticiaService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CopaContext>(
 

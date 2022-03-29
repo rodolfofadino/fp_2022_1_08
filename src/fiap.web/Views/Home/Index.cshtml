@@ -5,37 +5,43 @@
     //Layout = null;
 }
 
-@*<h1>@Html.Raw( ViewData["Tag"]) </h1>*@
-<h1>@ViewData["Tag"] </h1>
-<h1>@Model.Nome </h1>
-<h1>@Model.Sobrenome </h1>
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Tript</h1>
+        <p class="lead text-muted">Conheca as novidades sobre os melhores destinos e esteja sempre por dentro das novidades.</p>
+        <p>
+            <a href="#" class="btn btn-primary my-2">Buscar passagens</a>
+            <a href="#" class="btn btn-secondary my-2">Conheca nosso blog</a>
+        </p>
+    </div>
+</section>
 
-<h1>Ola Fiap @ViewData["Nome"]</h1>
-<h1>Ola Fiap @ViewData["SobreNome"]</h1>
-<h1>sou sobrenome e @ViewBag.SobreNome</h1>
+<div class="row">
+    <div id="carroseul" class="col">
+        <div class="jcarousel-wrapper">
+            <div class="jcarousel">
+                <ul>
+                    <li>
+                        <img class="carroseulimage" src="~/images/imagem-1.png" />
+                    </li>
+                    <li>
+                        <img class="carroseulimage" src="~/images/imagem-2.png" />
+                    </li>
+                    <li>
+                        <img class="carroseulimage" src="~/images/imagem-3.png" />
+                    </li>
+                    <li>
+                        <img class="carroseulimage" src="~/images/imagem-4.png" />
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <a href="#" class="jcarousel-control-prev">&lsaquo;</a>
+                <a href="#" class="jcarousel-control-next">&rsaquo;</a>
+            </div>
+            <div>	    </div>
 
-
-@foreach (var item in ((List<Aluno>)ViewBag.Alunos).Take(10))
-{
-    <partial name="_Aluno" model="item"></partial>
-}
-<email email="marcio"></email>
-
-<vc:noticias total="3"  ></vc:noticias>
-<email email="rodolfo"></email>
-<vc:noticias total="2" noticias-urgentes="true"></vc:noticias>
-@*@await Component.InvokeAsync("Noticias", new{total=3, noticiasUrgentes = false})*@
-
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-
-<script type="text/javascript">
-    
-$.get("https://localhost:5003/api/v2.0/times", function(data,status){
-
-    console.log("Data" + data);
-});
-</script>
-
+        </div>
+    </div>
+</div>
+<vc:noticias total="20" noticias-urgentes="false"></vc:noticias>
