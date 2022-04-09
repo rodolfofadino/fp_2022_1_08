@@ -1,0 +1,24 @@
+﻿body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#menu ul li {
+    display: inline-block;
+}
+
+#menu ul li {
+    padding: 10px;
+}
+
+    #menu ul li img {
+        width: 50px;
+    }
