@@ -2,14 +2,16 @@
 using fiapweb2022.core.Services;
 using fiapweb2022.Middlewares;
 using Microsoft.AspNetCore.DataProtection;
+using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Net.Http.Headers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.AddDataProtection()
     .SetApplicationName("fiap")
-    .PersistKeysToFileSystem(new DirectoryInfo( "C:\\Users\\rodolfofadino\\source\\repos\\fiap-web-2022\\src\\fiap.web"));
+    .PersistKeysToFileSystem(new DirectoryInfo("C:\\Users\\rodolfofadino\\source\\repos\\fiap-web-2022\\src\\fiap.web"));
 
 builder.Services.AddAuthentication("app").AddCookie("app",
     o =>
@@ -18,14 +20,19 @@ builder.Services.AddAuthentication("app").AddCookie("app",
         o.AccessDeniedPath = "/account/denied";
     });
 
-
-
+builder.Services.AddMemoryCache();
 builder.Services.AddTransient<NoticiaService>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<CopaContext>(
 
     o => o.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))
     );
+
+
+builder.Services.Configure<GzipCompressionProviderOptions>(o=>o.Level= System.IO.Compression.CompressionLevel.Optimal);
+
+builder.Services.AddResponseCompression(o => { o.Providers.Add<GzipCompressionProvider>(); });
+
 
 var app = builder.Build();
 
@@ -66,8 +73,17 @@ var app = builder.Build();
 
 //app.UseMiddleware<MeuMiddleware>();
 
+app.UseResponseCompression();
 
-app.UseStaticFiles();
+
+app.UseStaticFiles(new StaticFileOptions()
+{
+    OnPrepareResponse = ctx =>
+    {
+        int duration = 60 * 60 * 24 * 100;
+        ctx.Context.Response.Headers[HeaderNames.CacheControl] = $"public, max-age={duration}";
+    }
+});
 
 app.UseMeuMiddleware();
 

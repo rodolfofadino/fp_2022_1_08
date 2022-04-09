@@ -36,4 +36,8 @@
             })
             .jcarouselPagination();
     });
+
+
+
+ 
 })(jQuery);
