@@ -5,9 +5,9 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fiapweb2022", "src\fiap.web\fiapweb2022.csproj", "{FA7EA468-2C82-4B7E-968D-39AEE79B148B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiapweb2022.core", "src\fiap.core\fiapweb2022.core\fiapweb2022.core.csproj", "{CC4A96C5-76E4-49E5-9763-5D39EE18CAE0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fiapweb2022.core", "src\fiap.core\fiapweb2022.core\fiapweb2022.core.csproj", "{CC4A96C5-76E4-49E5-9763-5D39EE18CAE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fiapweb2022.api", "src\fiap.api\fiapweb2022.api\fiapweb2022.api.csproj", "{F173047B-41EC-4DE2-B2A6-CFEF89340691}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "fiapweb2022.api", "src\fiap.api\fiapweb2022.api\fiapweb2022.api.csproj", "{F173047B-41EC-4DE2-B2A6-CFEF89340691}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
