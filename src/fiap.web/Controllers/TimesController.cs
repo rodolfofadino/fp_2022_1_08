@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using fiapweb2022.core.Contexts;
-using fiapweb2022.core.Models;
+using fiapweb2022.Persistence.Contexts;
+using fiapweb2022.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
 
 namespace fiapweb2022.Controllers

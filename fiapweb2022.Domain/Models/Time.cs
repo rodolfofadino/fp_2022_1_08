@@ -1,8 +1,4 @@
-﻿
-
-using System.Text.Json.Serialization;
-
-namespace fiapweb2022.core.Models
+﻿namespace fiapweb2022.Domain.Models
 {
     public class Time
     {

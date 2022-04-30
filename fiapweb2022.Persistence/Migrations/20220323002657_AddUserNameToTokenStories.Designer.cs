@@ -3,17 +3,19 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using fiapweb2022.core.Contexts;
+using fiapweb2022.Persistence.Contexts;
 
 #nullable disable
 
-namespace fiapweb2022.core.Migrations
+namespace fiapweb2022.Persistence.Migrations
 {
     [DbContext(typeof(CopaContext))]
-    partial class CopaContextModelSnapshot : ModelSnapshot
+    [Migration("20220323002657_AddUserNameToTokenStories")]
+    partial class AddUserNameToTokenStories
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,9 +90,6 @@ namespace fiapweb2022.core.Migrations
                     b.Property<string>("Token")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Used")
-                        .HasColumnType("bit");
 
                     b.Property<string>("UserName")
                         .IsRequired()

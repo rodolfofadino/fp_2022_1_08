@@ -1,7 +1,7 @@
-﻿using fiapweb2022.core.Models;
+﻿using fiapweb2022.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace fiapweb2022.core.Contexts
+namespace fiapweb2022.Persistence.Contexts
 {
     public class CopaContext: DbContext
     {

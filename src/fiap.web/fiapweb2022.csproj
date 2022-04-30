@@ -34,7 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\fiap.core\fiapweb2022.core\fiapweb2022.core.csproj" />
+    <ProjectReference Include="..\..\fiapweb2022.IoC\fiapweb2022.IoC.csproj" />
   </ItemGroup>
 
   

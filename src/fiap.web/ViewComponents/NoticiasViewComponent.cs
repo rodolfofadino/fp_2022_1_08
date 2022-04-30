@@ -1,5 +1,5 @@
-﻿using fiapweb2022.core.Models;
-using fiapweb2022.core.Services;
+﻿using fiapweb2022.Application.Services;
+using fiapweb2022.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace fiapweb2022.ViewComponents
@@ -7,9 +7,9 @@ namespace fiapweb2022.ViewComponents
 
     public class NoticiasViewComponent : ViewComponent
     {
-        private NoticiaService _noticiaService;
+        private INoticiaService _noticiaService;
 
-        public NoticiasViewComponent(NoticiaService noticiaService)
+        public NoticiasViewComponent(INoticiaService noticiaService)
         {
             _noticiaService = noticiaService;
 

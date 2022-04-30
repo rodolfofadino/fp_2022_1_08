@@ -1,14 +1,7 @@
-﻿using fiapweb2022.api.ActionFilters;
-using fiapweb2022.core.Contexts;
-using fiapweb2022.core.Models;
+﻿using fiapweb2022.Persistence.Contexts;
+using fiapweb2022.Domain.Models;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace fiapweb2022.api.Controllers
 {

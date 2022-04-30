@@ -5,15 +5,15 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using fiapweb2022.core.Contexts;
+using fiapweb2022.Persistence.Contexts;
 
 #nullable disable
 
-namespace fiapweb2022.core.Migrations
+namespace fiapweb2022.Persistence.Migrations
 {
     [DbContext(typeof(CopaContext))]
-    [Migration("20220323002657_AddUserNameToTokenStories")]
-    partial class AddUserNameToTokenStories
+    [Migration("20220323001239_AddTokensStore")]
+    partial class AddTokensStore
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -88,10 +88,6 @@ namespace fiapweb2022.core.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Token")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UserName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

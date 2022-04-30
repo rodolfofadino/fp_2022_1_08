@@ -1,6 +1,5 @@
-﻿using fiapweb2022.core.Models;
+﻿using fiapweb2022.Domain.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Configuration;
 
 namespace fiapweb2022.Controllers
 {

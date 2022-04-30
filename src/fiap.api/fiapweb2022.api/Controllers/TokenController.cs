@@ -1,6 +1,6 @@
 ﻿using fiapweb2022.api.Models;
-using fiapweb2022.core.Contexts;
-using fiapweb2022.core.Models;
+using fiapweb2022.Domain.Models;
+using fiapweb2022.Persistence.Contexts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;

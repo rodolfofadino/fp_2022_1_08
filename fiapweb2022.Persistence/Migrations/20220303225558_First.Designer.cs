@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using fiapweb2022.core.Contexts;
+using fiapweb2022.Persistence.Contexts;
 
 #nullable disable
 
-namespace fiapweb2022.core.Migrations
+namespace fiapweb2022.Persistence.Migrations
 {
     [DbContext(typeof(CopaContext))]
     [Migration("20220303225558_First")]

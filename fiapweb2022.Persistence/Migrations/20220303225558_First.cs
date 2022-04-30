@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace fiapweb2022.core.Migrations
+namespace fiapweb2022.Persistence.Migrations
 {
     public partial class First : Migration
     {

@@ -1,12 +1,11 @@
 ﻿using fiapweb2022.api;
-using fiapweb2022.core.Contexts;
-using Microsoft.AspNetCore.Builder;
+using fiapweb2022.Persistence.Contexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
+
 
 
 builder.Services.Configure<RouteOptions>(

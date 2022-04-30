@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace fiapweb2022.core.Models
+namespace fiapweb2022.Domain.Models
 {
     public class TokenStore
     {
